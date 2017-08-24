@@ -1,0 +1,21 @@
+contract inventory{
+
+}
+
+contract player is superowned is inventory{
+uint public strength;
+uint public dexterity;
+uint public constitution;
+uint public intelligence;
+uint public wisdom;
+uint public charisma;
+uint public experience;
+uint public health;
+address public inventory;
+public address[] slots;
+
+function player(){
+
+}
+
+}
