@@ -47,15 +47,23 @@ function resurrect(){
 }
 
 
-function give(){
+function giveMagicItem() onlyOwner{
 
 }
 
-function take(){
+function giveItem() onlyOwner{
 
 }
 
-function suicide(){
+function takeMagicItem(address item, uint inventory) onlyOwner{
+
+}
+
+function takeItem(address item, uint inventory) onlyOwner{
+
+}
+
+function suicide() onlyOwner{
 
 }
 
