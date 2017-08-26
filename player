@@ -110,7 +110,7 @@ return true;
 }
 
 function suicide() onlyOwner{
-
+selfdestruct(owner);
 }
 
 function inventory(uint i)constant returns(address){
