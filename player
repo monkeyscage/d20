@@ -97,13 +97,13 @@ function takeItem(address item, uint inventory) onlyOwner{
 
 }
 
-function send(address coin,address to,uint i)returns(bool){
+function pay(address coin,address to,uint i)returns(bool){
 erc20=new Erc20(coin);
 if(!erc20.approveAndCall(to,i))revert();
 return true;
 }
 
-function pay(address coin,address to,uint i)constant returns(address){
+function send(address coin,address to,uint i)constant returns(address){
 erc20=new Erc20(coin);
 if(!erc20.send(to,i))revert();
 return true;
