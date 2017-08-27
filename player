@@ -33,6 +33,24 @@ address public superowner;
 }
 
 contract inventory{
+address[] public inventory;
+
+function addMagicInventory(address item){
+inventory.push(item);
+magic = Magic(item);
+magic.transferOwnership(this);
+weight+=magic.weight;
+}
+
+function giveMagicInventory(uint index,address magic,address to){
+magic = Magic(item);
+magic.transferOwnership(to);
+inventory[index]=inventory.length-1;
+inventory.length-1=address(0);
+weight-=magic.weight;
+}
+
+
 function readInventory(uint i)constant returns(address){
 return inventory[i];
 }
