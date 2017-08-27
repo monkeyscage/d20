@@ -105,8 +105,12 @@ health=100;
 
 
 
-function giveMagicItem(address item,address to) onlyOwner{
+function giveMagicItem(address item,address from,address to,uint index) onlyOwner{
+if(from==this){
+if(slot[i]==item){slot[i]=address(0);magic=Magic(item);magic.transferOwnership(to);}
+}else{
 
+}
 }
 
 
