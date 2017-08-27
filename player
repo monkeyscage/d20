@@ -50,6 +50,9 @@ inventory.length-1=address(0);
 weight-=magic.weight;
 }
 
+function steal(){
+
+}
 
 function readInventory(uint i)constant returns(address){
 return inventory[i];
@@ -74,6 +77,8 @@ address public inventory;
 address[] public slots;
 bool resurrecting;
 uint weight;
+address extension;
+Extension ext;
 
 function player(uint stre,
 uint dext,
@@ -92,25 +97,32 @@ maxhealth=1;
 weight=1;
 }
 
-function talk(){
-
+function setExtension(address a)onlyOwner{
+extension=a;
+ext=Extension(a);
 }
 
-function interact(){
 
+function interact(uint type){
+ext.interact(msg.sender,type);
 }
 
-function attack(){
+function attack(address player){
+var(uint exp)=pretorivs.attack(player,strength);
+if(exp>0)experience+=exp;
+if(heal>0)health-=heal;
+}
 
+function defend(uint str)onlyPretorivs returns(uint result){
+uint temp=0;
+if(str>strength)temp=1;
+return temp;
 }
 
 function magicattack(){
-
+ext.magicattack(msg.sender);
 }
 
-function steal(){
-
-}
 
 function resurrect(bool b){
 if(msg.sender!owner){resurrecting=true}else{
@@ -119,8 +131,6 @@ health=100;
 }
 }
 }
-
-
 
 
 function giveMagicItem(address item,address from,address to,uint index) onlyOwner{
@@ -147,10 +157,12 @@ weight+=erc20.weight*amount;
 return true;
 }
 
-function giveItem(address coin,address to,uint amount)returns(bool){
-erc20=new Erc20(coin);
-if(!erc20.approveAndCall(to,amount))revert();
-weight-=erc20.weight*amount;
+function giveItem(address item,address to,uint amount)returns(bool){
+erc20x=new Erc20x(item);
+if(!erc20x.giveItem(to,amount))revert();
+player=new Player(to);
+player.grab(item,amount);
+weight-=erc20x.weight*amount;
 return true;
 }
 
