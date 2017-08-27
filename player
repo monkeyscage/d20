@@ -55,6 +55,7 @@ uint maxhealt;
 address public inventory;
 address[] public slots;
 bool resurrecting;
+uint weight;
 
 function player(uint stre,
 uint dext,
@@ -70,6 +71,7 @@ wisdom=wisd;
 charisma=char;
 health=1;
 maxhealth=1;
+weight=1;
 }
 
 function talk(){
@@ -103,13 +105,10 @@ health=100;
 
 
 
-function giveMagicItem() onlyOwner{
+function giveMagicItem(address item,address to) onlyOwner{
 
 }
 
-function giveItem() onlyOwner{
-
-}
 
 function takeMagicItem(address item, uint inventory) onlyOwner{
 
@@ -119,7 +118,7 @@ function takeItem(address item, uint inventory) onlyOwner{
 
 }
 
-function pay(address coin,address to,uint i)returns(bool){
+function giveItem(address coin,address to,uint i)returns(bool){
 erc20=new Erc20(coin);
 if(!erc20.approveAndCall(to,i))revert();
 return true;
