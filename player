@@ -33,7 +33,7 @@ address public superowner;
 }
 
 contract inventory{
-function inventory(uint i)constant returns(address){
+function readInventory(uint i)constant returns(address){
 return inventory[i];
 }
 }
@@ -51,12 +51,25 @@ contract player is SuperOwned is abilities{
 
 uint public experience;
 uint public health;
+uint maxhealt;
 address public inventory;
 address[] public slots;
 bool resurrecting;
 
-function player(){
-
+function player(uint stre,
+uint dext,
+uint cons,
+uint intel,
+uint wisd,
+uint char){
+strength=stre;
+dexterity=dext;
+constitution=cons;
+intelligence=intel;
+wisdom=wisd;
+charisma=char;
+health=1;
+maxhealth=1;
 }
 
 function talk(){
