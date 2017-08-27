@@ -151,9 +151,8 @@ erc20=new Erc20(coin);
 weight+=erc20.weight*amount;
 }
 
-function grab(address item, uint amount) onlyOwner returns(true){
-erc20=new Erc20(item);
-weight+=erc20.weight*amount;
+function grab(address item,uint amount,uint weig) onlyOwner returns(true){
+if(pretorivs.legit()){weight+=weig;gotItem(item);}
 return true;
 }
 
