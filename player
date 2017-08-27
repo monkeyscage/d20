@@ -137,12 +137,20 @@ function takeMagicItem(address item, uint inventory) onlyOwner{
 }
 
 function takeItem(address item, uint inventory) onlyOwner{
-
+erc20=new Erc20(coin);
+weight+=erc20.weight*amount;
 }
 
-function giveItem(address coin,address to,uint i)returns(bool){
+function grab(address item, uint amount) onlyOwner returns(true){
+erc20=new Erc20(item);
+weight+=erc20.weight*amount;
+return true;
+}
+
+function giveItem(address coin,address to,uint amount)returns(bool){
 erc20=new Erc20(coin);
-if(!erc20.approveAndCall(to,i))revert();
+if(!erc20.approveAndCall(to,amount))revert();
+weight-=erc20.weight*amount;
 return true;
 }
 
