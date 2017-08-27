@@ -33,7 +33,9 @@ address public superowner;
 }
 
 contract inventory{
-
+function inventory(uint i)constant returns(address){
+return inventory[i];
+}
 }
 
 contract abilities{
@@ -45,11 +47,11 @@ uint public wisdom;
 uint public charisma;
 }
 
-contract player is SuperOwned is inventory is abilities{
+contract player is SuperOwned is abilities{
 
 uint public experience;
 uint public health;
-address[] public inventory;
+address public inventory;
 address[] public slots;
 bool resurrecting;
 
@@ -118,10 +120,6 @@ return true;
 
 function suicide() onlyOwner{
 selfdestruct(owner);
-}
-
-function inventory(uint i)constant returns(address){
-return inventory[i];
 }
 
 }
