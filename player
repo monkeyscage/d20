@@ -51,6 +51,7 @@ uint public experience;
 uint public health;
 address[] public inventory;
 address[] public slots;
+bool resurrecting;
 
 function player(){
 
@@ -76,9 +77,15 @@ function steal(){
 
 }
 
-function resurrect(){
-
+function resurrect(bool b){
+if(msg.sender!owner){resurrecting=true}else{
+if(!b){resurrecting=false;}else{
+health=100;
 }
+}
+}
+
+
 
 
 function giveMagicItem() onlyOwner{
