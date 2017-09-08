@@ -69,6 +69,12 @@ Places are like players: contracts.
 Places have their own inventory so your player can be inside a place.
 If you are at home none can attack you.
 
+# WORLD #
+The main world is a place. It has big amount of energy and can die.
+Likle players the world has a native inventory and can contain items and players and places and inventories.
+If the world dies you get a modifier -1 in all stats.
+There may be many worlds.
+
 # MODIFIERs #
 Players, magic items, amnd places offer a modifier.
 If you hold something or something is inside something, they affect each others with a modifier.
@@ -87,6 +93,14 @@ Resurrection is too expensive for you, forget your dead player.
 
 # PROCEDURES #
 
+## GENERATE PLAYERS ##
+1 trigger generator
+2 generator calls pretorivs and notifies the new player
+3 Pretorivs registers the player
+4 Pretorivs calls the World and drops the player in the world
+5 If you specified a location inside the world you will be dropped in that place
+6 Now according to the place rules someone may attack you
+
 ## ATTACK ##
 
 You want to attack a wizard using your warrior.
@@ -101,4 +115,8 @@ You want to attack a wizard using your warrior.
 Attack and counterattack may be registered as a unique action, saving possibly some gas.
 
 
+## PICK ITEM ##
 
+you have a number of slots you can fill. Since items can be magic or not, all slot are doubled, and the contract must check if one slot is full in both versions, magic or not. If you hold a magic item in the left hand, you can't hold a normal item at the same time on the same hand.
+
+## DROP ITEM ##
