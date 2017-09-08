@@ -101,6 +101,19 @@ Resurrection is too expensive for you, forget your dead player.
 5 If you specified a location inside the world you will be dropped in that place
 6 Now according to the place rules someone may attack you
 
+## GENERATE ITEM ##
+An item is an D20 ERC20 token.
+Once a new ERC20 is deployed it may be available as free generator or have a limited supply and sell the item.
+1 You buy/pick personally transferring directly the item to the balance of a player.
+2 The ERC20 calls your player and notifies the weight of the item/s.
+3 Your player has now an item in his balance (in the ERC20 contract actually..) and updates his weight.
+
+## DROP ITEM ##
+When you drop an item you are moving it from your balance to another Place.
+It can be the World (on the ground), or an inventory that is in the same place where you are, or an inventory you own in your native inventory.
+The ERC20 calls the world/place/inventory and notifies the weight of the item/s.
+Now the world/place/inventory has a new balance and in case it is an inventory it has an updated weight.
+
 ## ATTACK ##
 
 You want to attack a wizard using your warrior.
