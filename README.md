@@ -29,6 +29,20 @@ Players will in fact bots, and could be used beyond the game, due to the possibl
 Players can wear items, you will see this is a problem for many reasons.
 An item can be an inventory full of items. This is another problem.
 Ideally I should be able to steal from your inventory and able to steal things you are currently wearing.
+There will be a central generator of players.
+All players experinece must be certified.
+There will be a central register.
+
+# PRETORIVS #
+
+Pretorivs is the pretorian program of d20.
+It is ... the master?
+Each time you attack someone many things must be checked.
+Is your player original? is the one you attack original and certified? if so the fight will be official.
+Pretorivs will give the permission to external quests to modify the player once he ends the quest officially.
+Pretorivs can be ruled only by a dao: the D20-DAO.
+Pretorivs will do some other tasks you will understand later.
+
 
 # ITEMS #
 There are various items, like stones, ropes, mushooms, wine and more. Ideally infinite, so we need an open system, and everyone will be able to create basic items for his custom quest.
