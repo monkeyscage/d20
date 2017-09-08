@@ -16,3 +16,16 @@ Keep in mind that I didn't still face the problem of randomness. It is a big pro
 
 
 # PLAYERS #
+
+This is a world of scarsity, you will understanding it better step by step. A player is avaluable thing and is defined by an standalone contract.
+
+The target is to store as less informations as possible and to keep the functions inside an extension that is the same for all players, reducing the costs of deploying a nrew player and makeing it possible to extend players furtherly and upgrade the code if necessary.
+
+It is possible to attack another player, or simply to interact with it.
+The possible action may be extended.
+The possible reaction of a player depends on the extensions.-
+If oyu attack it will defend, if you simply interact ther emay be programmable reactions, like passing an object or a link.
+Players will in fact bots, and could be used beyond the game, due to the possible modular interaction.
+Players can wear items, you will see this is a problem for many reasons.
+An item can be an inventory full of items. This is another problem.
+Ideally I should be able to steal from your inventory and able to steal things you are currently wearing.
