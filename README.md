@@ -85,7 +85,18 @@ All contracts (players, places, inventories and magic items) can die.
 Players can be revived with resurrection if done before a limited amount of blocks.
 Resurrection is too expensive for you, forget your dead player.
 
+# PROCEDURES #
 
+## ATTACK ##
+
+You want to attack a wizard using your warrior.
+
+1 You call your warrior (passing the address of the wizard) and it will check you to be the owner.
+2 Your warrior calls Pretorivs (passing the address of the wizard) and it will check your warrior to be an official registered one
+3 Pretorivs checks the wizard to be official
+4 Pretorivs thorws the needed dice
+4 Pretorivs calls the wizard (passing the address of the attacker)
+3 Your warrior
 
 
 
