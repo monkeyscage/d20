@@ -29,3 +29,4 @@ Players will in fact bots, and could be used beyond the game, due to the possibl
 Players can wear items, you will see this is a problem for many reasons.
 An item can be an inventory full of items. This is another problem.
 Ideally I should be able to steal from your inventory and able to steal things you are currently wearing.
+
