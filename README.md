@@ -113,6 +113,7 @@ When you drop an item you are moving it from your balance to another Place.
 It can be the World (on the ground), or an inventory that is in the same place where you are, or an inventory you own in your native inventory.
 The ERC20 calls the world/place/inventory and notifies the weight of the item/s.
 Now the world/place/inventory has a new balance and in case it is an inventory it has an updated weight.
+The world is totally full of things on the ground. So many that you can't even recognize them all. In fact if you don't know the identity (address) of an ERC20 you can't see it.
 
 ## ATTACK ##
 
@@ -130,6 +131,18 @@ Attack and counterattack may be registered as a unique action, saving possibly s
 
 ## PICK ITEM ##
 
-you have a number of slots you can fill. Since items can be magic or not, all slot are doubled, and the contract must check if one slot is full in both versions, magic or not. If you hold a magic item in the left hand, you can't hold a normal item at the same time on the same hand.
+If you own an inventory, or a place, like your home, you can pick items.
+Some inventories are public (like containers you find around).
+All players/inventory/places have the function pick().
+If you pick from a player you are stealing and this will trigger something.
+If you pick from a place/inventory, you simply order the place/inventory to transfer you those items.
+Now those erc20 move from the place/inventory balance to your balance.
+The ERC20 contract will notify your player the new weight.
 
-## DROP ITEM ##
+## OFFER ITEM ##
+
+When you transfer a D20 item to a wallet the ERC20 contract will ask Pretorivs if the wallet is a Player/Place/inventory
+In case it is not, so it is just a wallet and there is no problem.
+In case it is a Player, you need the permission, since the object could have high weight and create problem in a battle.
+So in this case the object is transferred to Pretorivs, where the player can pick it from.
+Only that player can pick it.
