@@ -50,9 +50,30 @@ This is one fo the beauties of this system.
 If you know etheruem you eard words like "total global tokenization".
 This is something difficult to achive in the real world, easy to achieve inside ethereum.
 D20 is a world completely tokenized.
-A stone, a rope, a mushroom or a bottle of wine or a basic sword are all ERC20 tokens! Some are more valuable, some are in infinite amounts.
+A stone, a rope, a mushroom or a bottle of wine or a basic sword are all different ERC20 tokens! Some are more valuable, some are in infinite amounts.
 Ideally we can steal the code form ETHERDELTA (muahahah) and build an easy exchange platform all devoted to D20-item-tokens.
 I don't think we need to invent virtual gold, people prefers to earn eth in a quest (lol).
-Items aren't pure ERC20, in fact they all have a weight. When you pick up an item or you pass it to someone, the weight of your inventory must be recalculated, and this has further gas costs.
+Items aren't pure ERC20, in fact they all have a weight. When you pick up an item or you pass it to someone, the weight of your inventory must be recalculated, and this has further gas costs and is a biot problematic for some reasons.
+
+# MAGIC ITEMS #
+I love and hate magic items becasue they aren't ERC20 items, they are like players in my vision, they ae a single smart contract (pretty expensive idea).
+A magic item can die and has stats like your warrior.
+I am totally convinced this to be the way, but it produces some side effects in the management of the inventory. Also one thiong is to handle a token, anothe ris to handle a smart contract: your warrios must be able to do both!
+Same thing for your inventory, it can contain contracts (magic items) or tokens (normal items).
+You can interact with magic items of course!
+And you can also attack them.
+If by chance you know the address of the fountain of ethernal life you should try to interact with it. (yes but you don't know the address).
+
+# PLACES #
+Places are like players: contracts.
+Places have their own inventory so your player can be inside a place.
+If you are at home none can attack you.
+
+# MODIFIERs #
+Players, magic items, amnd places offer a modifier.
+If you hold something or something is inside something, they affect each others with a modifier.
+So your sword will give you +1.
+Or a place will give you -1.
+
 
 
