@@ -75,5 +75,17 @@ If you hold something or something is inside something, they affect each others 
 So your sword will give you +1.
 Or a place will give you -1.
 
+# INVENTORY #
+An inventory is a standalone contract, and can contain things like players, and like magic items can have special powers and offer a modfier.
+When you drop soemthing iside an inventory the weight must be recalculated.
+When a player wears an inventory, dropping something in the inventory must trigger a calculation in the inventory and n the player.
+
+# DEATH #
+All contracts (players, places, inventories and magic items) can die.
+Players can be revived with resurrection if done before a limited amount of blocks.
+Resurrection is too expensive for you, forget your dead player.
+
+
+
 
 
