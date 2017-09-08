@@ -30,3 +30,15 @@ Players can wear items, you will see this is a problem for many reasons.
 An item can be an inventory full of items. This is another problem.
 Ideally I should be able to steal from your inventory and able to steal things you are currently wearing.
 
+# ITEMS #
+There are various items, like stones, ropes, mushooms, wine and more. Ideally infinite, so we need an open system, and everyone will be able to create basic items for his custom quest.
+This is one fo the beauties of this system.
+If you know etheruem you eard words like "total global tokenization".
+This is something difficult to achive in the real world, easy to achieve inside ethereum.
+D20 is a world completely tokenized.
+A stone, a rope, a mushroom or a bottle of wine or a basic sword are all ERC20 tokens! Some are more valuable, some are in infinite amounts.
+Ideally we can steal the code form ETHERDELTA (muahahah) and build an easy exchange platform all devoted to D20-item-tokens.
+I don't think we need to invent virtual gold, people prefers to earn eth in a quest (lol).
+Items aren't pure ERC20, in fact they all have a weight. When you pick up an item or you pass it to someone, the weight of your inventory must be recalculated, and this has further gas costs.
+
+
