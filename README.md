@@ -95,8 +95,10 @@ You want to attack a wizard using your warrior.
 2 Your warrior calls Pretorivs (passing the address of the wizard) and it will check your warrior to be an official registered one
 3 Pretorivs checks the wizard to be official
 4 Pretorivs thorws the needed dice
-4 Pretorivs calls the wizard (passing the address of the attacker)
-3 Your warrior
+5 Pretorivs calls the wizard passing the attack result
+6 The wizard checks his defense calculates the damage and the experience and returns back to your warrior the amount of experience gained.
+7 Ideally the attack could trigger a counterattack, restarting from step 1.
+Attack and counterattack may be registered as a unique action, saving possibly some gas.
 
 
 
