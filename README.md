@@ -82,10 +82,12 @@ Places are like players: contracts.
 Places have their own inventory so your player can be inside a place.
 If you are at home none can attack you. Places have an owner, if you own a place you can lock it like an inventory.
 A locked place is like  a prison, if you are inside you can't exit, nor you can drop in items or players, notr you can pull them out.
+An Place inventory is an array of addresses (magic-items/inventories) and a balance (erc20 items).
 
 # WORLD #
 The main world is a place. It has big amount of energy and can die.
 Likle players the world has a native inventory and can contain items and players and places and inventories.
+An World inventory is an array of addresses (magic-items/inventories/places) and a balance (erc20 items).
 If the world dies you get a modifier -1 in all stats.
 There may be many worlds.
 
