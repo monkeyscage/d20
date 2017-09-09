@@ -209,3 +209,5 @@ Substituting your interaction module equals to give a new brain to your player, 
 - Reaction
 
 If you give the permission to a in interaction module, it will be able to attack/pick/drop/interact in your behalf.
+Interaction aren't official and won't modify your stats, therefore there is no need to call Pretorivs.
+In case an interaction triggers an attack, the fight will involve Pretorivs.
