@@ -202,4 +202,4 @@ your payer could also give me the address og your shop, where you sell D20 items
 This custom interaction brings this system beyond the border of the game.
 You player is now your avatar, avatars can interact with each others.
 Anc can do any kind of web3 thing.
-Substituting your interaction module equals to give a new brain to your player, your player is in fact a bot.
+Substituting your interaction module equals to give a new brain to your player, your player is in fact a bot possibly indexed with ENS.
