@@ -67,7 +67,8 @@ If by chance you know the address of the fountain of ethernal life you should tr
 # PLACES #
 Places are like players: contracts.
 Places have their own inventory so your player can be inside a place.
-If you are at home none can attack you.
+If you are at home none can attack you. Places have an owner, if you own a place you can lock it like an inventory.
+A locked place is like  a prison, if you are inside you can't exit, nor you can drop in items or players, notr you can pull them out.
 
 # WORLD #
 The main world is a place. It has big amount of energy and can die.
@@ -100,6 +101,20 @@ Resurrection is too expensive for you, forget your dead player.
 4 Pretorivs calls the World and drops the player in the world
 5 If you specified a location inside the world you will be dropped in that place
 6 Now according to the place rules someone may attack you
+
+## CHANGE PLACE ##
+A player or an inventory or an item can be moved from a place to another one.
+1 If you are the owner of the object/player/inventory
+2 If the start place is not locked
+3 You call the place and tell to move an entity, passing the entoty address and the target place address.
+4 If ok the place contacts pretorivs.
+5 Pretorivs verifies the entity if official.
+6 The modifier of the stat space is removed from the entity
+7 Pretorivs will verify the target if official.
+8 Pretorivs contacts the target place and passes the object
+9 The object is registered in the new place
+10 The modifier of the target space is applied to the entity
+
 
 ## GENERATE ITEM ##
 An item is an D20 ERC20 token.
