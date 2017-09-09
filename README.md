@@ -179,3 +179,27 @@ You want to attack a wizard using your warrior.
 - The wizard checks his defense calculates the damage and the experience and returns back to your warrior the amount of experience gained.
 - Ideally the attack could trigger a counterattack, restarting from step 1.
 Attack and counterattack may be registered as a unique action, saving possibly some gas.
+
+## ATTACK A PLACE ##
+You can attack a Player's house.
+If you "kill" the house, the house will be unlocked and you can enter, drop things, or pick anything existing inside, except for Players.
+Same for locked private inventories.
+
+## CHANGE D20 RULES ##
+When you attack you call a function in  Player that triggers a standard external fight module containing the D20 rules.
+This module can be substitued accordding to Pretorivs.
+This module is ideally only offered by D20 DAO.
+D20 DAO may allow you to use your Player in different games, with different fight rules.
+
+## INTERACTION ##
+Interaction calls again an external interaction module.
+Interaction modules can be built by anyone without D20 DAO permission and IMPLICITLY EXTEND all existing players.
+IF I interact with you many things can happen.
+D20 DAO offers a basic interaction module, able to answer messages, give items, links or eth addresses.
+Anyone can extend a Player by adding an extension to the blockchain.
+n example is when I interact with your player, if I am part of the same quest you are playing, your player will react in a given way, other wise there will be a different reaction.
+your payer could also give me the address og your shop, where you sell D20 items or real items, or answer other things connected to the real economy.
+This custom interaction brings this system beyond the border of the game.
+You player is now your avatar, avatars can interact with each others.
+Anc can do any kind of web3 thing.
+Substituting your interaction module equals to give a new brain to your player, your player is in fact a bot.
