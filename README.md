@@ -205,7 +205,7 @@ Anc can do any kind of web3 thing.
 Substituting your interaction module equals to give a new brain to your player, your player is in fact a bot possibly indexed with ENS.
 - I call my Player and tell to interact with you in a standard way or referring to a specific interaxtion extension.
 - My Player calls your Player.
-- Your Player calls the right interaction module
+- Your Player calls the right interaction module I specified
 - Reaction
 
 If you give the permission to a in interaction module, it will be able to attack/pick/drop/interact in your behalf.
