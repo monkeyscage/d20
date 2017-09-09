@@ -116,21 +116,24 @@ Resurrection is too expensive for you, forget your dead player.
 - generator calls pretorivs and notifies the new player
 - Pretorivs registers the player
 - Pretorivs calls the World and drops the player in the world
-- If you specified a location inside the world you will be dropped in that place
+- If you specified a location, if the location is official, world you will be dropped in that place
+- Pretorivs registers your player location
+- Place modifier is applied to your Player
 - Now according to the place rules someone may attack you
 
 ## CHANGE PLACE ##
 A player or an inventory or an item can be moved from a place to another one.
 - If you are the owner of the object/player/inventory
 - If the start place is not locked
-- You call the place and tell to move an entity, passing the entoty address and the target place address.
+- You call the place and tell to move an entity, passing the entity address and the target place address.
 - If ok the place contacts pretorivs.
-- Pretorivs verifies the entity if official.
+- Pretorivs verifies the entity if official. (ideally only official entities can be inside official entities, so it may be not necessary if you verify the start place)
 - The modifier of the stat space is removed from the entity
 - Pretorivs will verify the target if official.
 - Pretorivs contacts the target place and passes the object
 - The object is registered in the new place
 - The modifier of the target space is applied to the entity
+- Pretorivs registers your new location
 
 
 ## GENERATE ITEM ##
@@ -146,8 +149,6 @@ It can be the World (on the ground), or an inventory that is in the same place w
 - The ERC20 calls the world/place/inventory and notifies the weight of the item/s.
 - Now the world/place/inventory has a new balance and in case it is an inventory it has an updated weight.
 The world is totally full of things on the ground. So many that you can't even recognize them all. In fact if you don't know the identity (address) of an ERC20 you can't see it.
-
-
 
 
 ## PICK ITEM ##
