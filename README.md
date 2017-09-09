@@ -13,7 +13,9 @@ All this research is to explore this option. Assuming we can build such system, 
 
 Keep in mind that I didn't still face the problem of randomness. It is a big problem, but is still secondary in this "research".
 
-
+# NOTE #
+In this vision, if I decide to attack you, you don't need to be online.
+At the same time, the attacker is the one spending gas.
 
 # PLAYERS #
 
