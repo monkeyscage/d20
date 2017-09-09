@@ -97,12 +97,12 @@ Resurrection is too expensive for you, forget your dead player.
 # PROCEDURES #
 
 ## GENERATE PLAYERS ##
-1 trigger generator
-2 generator calls pretorivs and notifies the new player
-3 Pretorivs registers the player
-4 Pretorivs calls the World and drops the player in the world
-5 If you specified a location inside the world you will be dropped in that place
-6 Now according to the place rules someone may attack you
+- trigger generator
+- generator calls pretorivs and notifies the new player
+- Pretorivs registers the player
+- Pretorivs calls the World and drops the player in the world
+- If you specified a location inside the world you will be dropped in that place
+- Now according to the place rules someone may attack you
 
 ## CHANGE PLACE ##
 A player or an inventory or an item can be moved from a place to another one.
