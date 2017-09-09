@@ -166,6 +166,12 @@ Once a magic item is generated it is dropped into a Place/Inventory/Player.
 - If the target is a player it offers the magic item.
 - The player will have to pick it up.
 
+## PICKUP MAGIC ITEM ##
+- You call Pretorivs to check if any magic item is available for your player.
+- If yes you tell pretorivs to drop the item to your player.
+- Pretorivs checks you to be the owner of the Player
+- The item is moved to the Player native inventory
+- The weight is notified an updated
 
 ## ATTACK ##
 
