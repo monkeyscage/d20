@@ -88,6 +88,8 @@ Or a place will give you -1.
 An inventory is a standalone contract, and can contain things like players, and like magic items can have special powers and offer a modfier.
 When you drop soemthing iside an inventory the weight must be recalculated.
 When a player wears an inventory, dropping something in the inventory must trigger a calculation in the inventory and n the player.
+An inventory is an array of addresses (magic items) and a balance (erc20 items).
+It can contain any mount of items, the weight will increase accordingly.
 
 # DEATH #
 All contracts (players, places, inventories and magic items) can die.
