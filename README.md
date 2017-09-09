@@ -121,20 +121,6 @@ Resurrection is too expensive for you, forget your dead player.
 - Place modifier is applied to your Player
 - Now according to the place rules someone may attack you
 
-## CHANGE PLACE ##
-A player or an inventory or an item can be moved from a place to another one.
-- If you are the owner of the object/player/inventory
-- If the start place is not locked
-- You call the place and tell to move an entity, passing the entity address and the target place address.
-- If ok the place contacts pretorivs.
-- Pretorivs verifies the entity if official. (ideally only official entities can be inside official entities, so it may be not necessary if you verify the start place)
-- The modifier of the stat space is removed from the entity
-- Pretorivs will verify the target if official.
-- Pretorivs contacts the target place and passes the object
-- The object is registered in the new place
-- The modifier of the target space is applied to the entity
-- Pretorivs registers your new location
-
 
 ## GENERATE ITEM ##
 An item is an D20 ERC20 token.
@@ -189,6 +175,20 @@ Once a magic item is generated it is dropped into a Place/Inventory/Player.
 - The item is moved to the Player native inventory
 - The weight is notified an updated
 - The modifier is applied to the new holder (how? I must think about modifiers)
+
+## CHANGE PLACE ##
+A player or an inventory or a magic item can be moved from a place to another one.
+- If you are the owner of the object/player/inventory
+- If the start place is not locked
+- You call the place and tell to move an entity, passing the entity address and the target place address.
+- If ok the place contacts pretorivs.
+- Pretorivs verifies the entity if official. (ideally only official entities can be inside official entities, so it may be not necessary if you verify the start place)
+- The modifier of the stat space is removed from the entity
+- Pretorivs will verify the target if official.
+- Pretorivs contacts the target place and passes the object
+- The object is registered in the new place
+- The modifier of the target space is applied to the entity
+- Pretorivs registers your new location
 
 ## ATTACK ##
 
