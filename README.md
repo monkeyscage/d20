@@ -35,14 +35,16 @@ There will be a central generator of players.
 All players experinece must be certified.
 There will be a central register.
 ## PLAYER INVENTORY ##
-A player has 6 slots for weapons and armor, able to accept only the rght kind of addresses referring to the right type.
+A player has 8 slots for weapons and armor, able to accept only the rght kind of addresses referring to the right type.
 The address can be a magic item contract of the address of an erc20 item.
 1. HEAD
 2. BODY
 3. LEGS
 4. FEET
-5. INVENTORY 1 (can contain a magic item/inventory, or an erc20 item address)
-6. INVENTORY 2 (can contain a magic item/inventory, or an erc20 item address)
+5. LEFT HAND
+6. RIGHT HAND
+7. INVENTORY 1 (can contain a magic item/inventory, or an erc20 item address)
+8. INVENTORY 2 (can contain a magic item/inventory, or an erc20 item address)
 
 # PRETORIVS #
 
