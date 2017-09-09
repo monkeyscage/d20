@@ -172,6 +172,7 @@ Once a magic item is generated it is dropped into a Place/Inventory/Player.
 - Pretorivs checks you to be the owner of the Player
 - The item is moved to the Player native inventory
 - The weight is notified an updated
+- The modifier is applied to the new holder (how? I must think about modifiers)
 
 ## ATTACK ##
 
