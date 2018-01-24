@@ -32,69 +32,53 @@ address public superowner;
 
 }
 
-contract inventory{
-address[] public inventory;
-
-function addMagicInventory(address item){
-inventory.push(item);
-magic = Magic(item);
-magic.transferOwnership(this);
-weight+=magic.weight;
-}
-
-function giveMagicInventory(uint index,address magic,address to){
-magic = Magic(item);
-magic.transferOwnership(to);
-inventory[index]=inventory.length-1;
-inventory.length-1=address(0);
-weight-=magic.weight;
-}
-
-function steal(){
-
-}
-
-function readInventory(uint i)constant returns(address){
-return inventory[i];
-}
-}
-
 contract abilities{
-uint public strength;
-uint public dexterity;
-uint public constitution;
-uint public intelligence;
-uint public wisdom;
-uint public charisma;
+
 }
 
-contract player is SuperOwned is abilities{
-
-uint public experience;
-uint public health;
-uint maxhealt;
-address public inventory;
+contract player is SuperOwned {
+string public name;
+string public link;
+uint[] public sets;
 address[] public slots;
-bool resurrecting;
-uint weight;
+
 address extension;
 Extension ext;
 
-function player(uint stre,
+function d20(string _name,uint _sex,){
+name=_name;
+sets[0]=_race;
+sets[1]=_sex;
+sets[2]=_class;
+sets[3]=_alignment;
+
+sets[4]=block.number;
+sets[5]=_health;
+
+//modifiers
+sets[6]=10000; //strength
+sets[7]=10000; //constitution
+sets[8]=10000;//dexterity
+sets[9]=10000;//Intelligence
+sets[10]=10000;//wisdom
+sets[11]=10000;//charisma
+
+sets[12]=0; //experience
+sets13]=0; //weight
+sets[14]=0; //death
+}
+function init(uint stre,
 uint dext,
 uint cons,
 uint intel,
 uint wisd,
 uint char){
-strength=stre;
-dexterity=dext;
-constitution=cons;
-intelligence=intel;
-wisdom=wisd;
-charisma=char;
-health=1;
-maxhealth=1;
-weight=1;
+sets[6]=stre; //strength
+sets[7]=dext; //constitution
+sets[8]=cons;//dexterity
+sets[9]=intel;//Intelligence
+sets[10]=wisd;//wisdom
+sets[11]=char;//charisma
 }
 
 function setExtension(address a)onlyOwner{
