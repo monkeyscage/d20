@@ -41,8 +41,8 @@ address public location;
 uint[] public sets;
 address[] public slots;
 
-address extension;
-Extension ext;
+address public brain;
+address public body;
 
 function d20(string _name,uint _sex,){
 name=_name;
@@ -63,9 +63,10 @@ sets[10]=10000;//wisdom
 sets[11]=10000;//charisma
 
 sets[12]=0; //experience
-sets13]=0; //weight
+sets[13]=0; //weight
 sets[14]=0; //death
 sets[15]=0; //price
+sets[16]=10; //slots
 }
 function init(uint stre,
 uint dext,
@@ -73,98 +74,52 @@ uint cons,
 uint intel,
 uint wisd,
 uint char){
-sets[16]=stre; //strength
-sets[17]=dext; //constitution
-sets[18]=cons;//dexterity
-sets[19]=intel;//Intelligence
-sets[20]=wisd;//wisdom
-sets[21]=char;//charisma
+if(stre+dext+cons+intel+wisd+char>81)revert();
+if((stre>16)||(dext>16)||(cons>16)||(intel>16)||(wisd>16)||(char>16))revert();
+sets[17]=stre; //strength
+sets[18]=dext; //constitution
+sets[19]=cons;//dexterity
+sets[20]=intel;//Intelligence
+sets[21]=wisd;//wisdom
+sets[22]=char;//charisma
 }
 
 function setPrice(uint _price)onlyOwner{
 sets[15]=_price;
 }
 
+function setLink(string _link)onlyOwner{
+link=_link; 
+}
+
+function set(uint _i,uint _j)onlyMaster{
+sets[_i]=_j;
+}
+
+function  wear(uint _i,address _j)onlyMaster{
+slots[_i]=_j;
+}
+
+function setLocation(address _location)onlyMaster{
+location=_location;
+}
+
+
 function read(uint _i)constant returns(uint){
 return sets[_i];
 }
 
-function setExtension(address a)onlyOwner{
-extension=a;
-ext=Extension(a);
+function readInventory(uint _i)constant returns(address){
+return slots[_i];
 }
 
+function setBrain(address a)onlyOwner{
+brain=a;
+} 
 
-function interact(uint type){
-ext.interact(msg.sender,type);
+function setBody(address a)onlyOwner{
+body=a;
 }
 
-function attack(address player){
-var(uint exp)=pretorivs.attack(player,strength);
-if(exp>0)experience+=exp;
-if(heal>0)health-=heal;
-}
-
-function defend(uint str)onlyPretorivs returns(uint result){
-uint temp=0;
-if(str>strength)temp=1;
-return temp;
-}
-
-function magicattack(){
-ext.magicattack(msg.sender);
-}
-
-
-function resurrect(bool b){
-if(msg.sender!owner){resurrecting=true}else{
-if(!b){resurrecting=false;}else{
-health=100;
-}
-}
-}
-
-
-function giveMagicItem(address item,address from,address to,uint index) onlyOwner{
-if(from==this){
-if(slot[i]==item){slot[i]=address(0);magic=Magic(item);magic.transferOwnership(to);}
-}else{
-
-}
-}
-
-
-function takeMagicItem(address item, uint inventory) onlyOwner{
-
-}
-
-function takeItem(address item, uint inventory) onlyOwner{
-erc20=new Erc20(coin);
-weight+=erc20.weight*amount;
-}
-
-function grab(address item,uint amount,uint weig) onlyOwner returns(true){
-if(pretorivs.legit()){weight+=weig;gotItem(item);}
-return true;
-}
-
-function giveItem(address item,address to,uint amount)returns(bool){
-erc20x=new Erc20x(item);
-if(!erc20x.giveItem(to,amount))revert();
-player=new Player(to);
-player.grab(item,amount);
-weight-=erc20x.weight*amount;
-return true;
-}
-
-function send(address coin,address to,uint i)constant returns(address){
-erc20=new Erc20(coin);
-if(!erc20.send(to,i))revert();
-return true;
-}
-
-function suicide() onlyOwner{
-selfdestruct(owner);
-}
 
 }
