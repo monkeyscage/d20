@@ -32,13 +32,12 @@ address public superowner;
 
 }
 
-contract abilities{
-
-}
 
 contract player is SuperOwned {
 string public name;
 string public link;
+address public location;
+
 uint[] public sets;
 address[] public slots;
 
@@ -66,6 +65,7 @@ sets[11]=10000;//charisma
 sets[12]=0; //experience
 sets13]=0; //weight
 sets[14]=0; //death
+sets[15]=0; //price
 }
 function init(uint stre,
 uint dext,
@@ -73,12 +73,20 @@ uint cons,
 uint intel,
 uint wisd,
 uint char){
-sets[6]=stre; //strength
-sets[7]=dext; //constitution
-sets[8]=cons;//dexterity
-sets[9]=intel;//Intelligence
-sets[10]=wisd;//wisdom
-sets[11]=char;//charisma
+sets[16]=stre; //strength
+sets[17]=dext; //constitution
+sets[18]=cons;//dexterity
+sets[19]=intel;//Intelligence
+sets[20]=wisd;//wisdom
+sets[21]=char;//charisma
+}
+
+function setPrice(uint _price)onlyOwner{
+sets[15]=_price;
+}
+
+function read(uint _i)constant returns(uint){
+return sets[_i];
 }
 
 function setExtension(address a)onlyOwner{
