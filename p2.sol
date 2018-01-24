@@ -71,14 +71,30 @@ sets.push(10000);//Intelligence
 sets.push(10000);//wisdom
 sets.push(10000);//charisma
 
-sets.push(0); //experience
-sets.push(0); //weight
-sets.push(0); //death
-sets.push(0); //price
-sets.push(10); //slots
+sets.length++; //experience
+sets.length++; //weight
+sets.length++; //death
+sets.length++; //price
+sets[sets.length++]=10; //slots
 
 }
 
+function init(uint stre,
+uint dext,
+uint cons,
+uint intel,
+uint wisd,
+uint char){
+if(stre+dext+cons+intel+wisd+char>81)revert();
+if((stre>16)||(dext>16)||(cons>16)||(intel>16)||(wisd>16)||(char>16))revert();
+sets[sets.length++]=stre; //strength
+sets[sets.length++]=dext; //constitution
+sets[sets.length++]=cons;//dexterity
+sets[sets.length++]=intel;//Intelligence
+sets[sets.length++]=wisd;//wisdom
+sets[sets.length++]=char;//charisma
+sets[5]=cons; //healt
+}
 
 function setPrice(uint _price)onlyOwner{
 sets[15]=_price;
