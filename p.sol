@@ -17,6 +17,8 @@ address public superowner;
         }
         _;
     }
+    
+
 
     //you can transfer ownership only if NO superowner is declared
     function transferOwnership(address newOwner) onlyOwner returns(bool){
@@ -41,10 +43,11 @@ address public location;
 uint[] public sets;
 address[] public slots;
 
+address public master;
 address public brain;
 address public body;
 
-function d20(string _name,uint _sex,){
+function d20(string _name,uint _sex,uint _class,uint _alignment,address master){
 name=_name;
 sets[0]=_race;
 sets[1]=_sex;
@@ -102,6 +105,10 @@ slots[_i]=_j;
 
 function setLocation(address _location)onlyMaster{
 location=_location;
+}
+
+function setMaster(address _master)onlyMaster{
+master=_master;
 }
 
 
