@@ -1,4 +1,4 @@
-pragma solidity 0.4.11;
+pragma solidity 0.4.19;
 
 contract SuperOwned{
 
@@ -47,15 +47,21 @@ address public master;
 address public brain;
 address public body;
 
-function d20(string _name,uint _sex,uint _class,uint _alignment,address master){
+    modifier onlyMaster { 
+        if (msg.sender != master) revert();
+        _;
+    }
+
+function d20(string _name,uint _race,uint _sex,uint _class,uint _alignment,address _master){
 name=_name;
+master=_master;
 sets[0]=_race;
 sets[1]=_sex;
 sets[2]=_class;
 sets[3]=_alignment;
 
 sets[4]=block.number;
-sets[5]=_health;
+sets[5]=0;
 
 //modifiers
 sets[6]=10000; //strength
@@ -85,6 +91,7 @@ sets[19]=cons;//dexterity
 sets[20]=intel;//Intelligence
 sets[21]=wisd;//wisdom
 sets[22]=char;//charisma
+sets[5]=cons; //healt
 }
 
 function setPrice(uint _price)onlyOwner{
