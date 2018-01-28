@@ -6,14 +6,21 @@ contract D20Factory {
 
      address public owner;
      D20NameSys public nameSys; 
+     address public master;
 
-    function D20Factory() {
+    function D20Factory(address m) {
       owner=msg.sender;
+      master=m;
     }
 
     function setOwner(address a) {
        if(msg.sender!=owner)revert();
        owner=a;
+    }
+    
+    function setMaster(address a) {
+       if(msg.sender!=owner)revert();
+       master=a;
     }
 
     function setList(address l){
@@ -21,8 +28,8 @@ contract D20Factory {
         nameSys=D20NameSys(l);
     }
 
-    function createToken(string _name){
-        D20Player newPlayer = new D20Player(); 
+    function createToken(string _name,uint _sex,uint _class,uint _alignment,uint _race){
+        D20Player newPlayer = new D20Player( _name,_master,_sex,_class,_alignment,_race); 
         nameSys.add(address(newPlayer),msg.sender,_name);
     }
 
@@ -35,21 +42,15 @@ address public owner;
 mapping(address => address[]) public created;
 mapping(address => bool) public permission;
 mapping(string => bool) names;
-mapping(string => address) namesAddress;;
+mapping(string => address) namesAddress;
 mapping(address => string)public tokenNames;
-mapping(address => address)public namesOwner;
 address[] public list;
-BasicStandardToken flood;
 
 
 function D20NameSys(){
 owner=msg.sender;
 }
 
-function setFloodToken(address _flood){
-if(msg.sender!=owner)revert();
-flood=BasicStandardToken(_flood);
-}
 
 function setD20(string _name,bool b){
 if(msg.sender!=owner)revert();
@@ -68,7 +69,6 @@ list.push(address(d20));
 names[_name]=true;
 tokenNames[d20]=_name;
 namesAddress[_name]=d20;
-namesOwner[_name]=own;
 return true;
 }
 
@@ -86,7 +86,7 @@ return (list[i],list.length);
 }
 
 function getD20(address _D20)constant returns(string){
-return (tokenNames[_D20],namesOwner[_D20]);
+return (tokenNames[_D20]);
 }
 
 function checkName(string _name)constant returns(bool){return names[_name];}
