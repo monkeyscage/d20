@@ -21,11 +21,9 @@ contract D20Factory {
         nameSys=D20NameSys(l);
     }
 
-    function createToken(uint256 _initialAmount, string _name, uint8 _decimals, string _symbol){
-       
-        D20Player newPlayer = new D20Player();
-        if(!newPlayer.init(_initialAmount, _name, _decimals, _symbol,msg.sender,owner))revert(); 
-        nameSys.add(address(newToken),msg.sender,_name,_symbol);
+    function createToken(string _name){
+        D20Player newPlayer = new D20Player(); 
+        nameSys.add(address(newPlayer),msg.sender,_name);
     }
 
 }
