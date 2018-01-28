@@ -5,9 +5,9 @@ pragma solidity ^0.4.15;
 contract D20Factory {
 
      address public owner;
-     FloodNameSys public list; 
+     D20NameSys public nameSys; 
 
-    function BasicStandardTokenFactory() {
+    function D20Factory() {
       owner=msg.sender;
     }
 
@@ -18,38 +18,34 @@ contract D20Factory {
 
     function setList(address l){
         if(msg.sender!=owner)revert();
-        list=FloodNameSys(l);
+        nameSys=D20NameSys(l);
     }
 
     function createToken(uint256 _initialAmount, string _name, uint8 _decimals, string _symbol){
-        //BasicStandardToken newToken = (new BasicStandardToken(_initialAmount, _name, _decimals, _symbol,msg.sender,owner));
-        BasicStandardToken newToken = new BasicStandardToken();
-        if(!newToken.init(_initialAmount, _name, _decimals, _symbol,msg.sender,owner))revert(); 
-        list.add(address(newToken),msg.sender,_name,_symbol);
+       
+        D20Player newPlayer = new D20Player();
+        if(!newPlayer.init(_initialAmount, _name, _decimals, _symbol,msg.sender,owner))revert(); 
+        nameSys.add(address(newToken),msg.sender,_name,_symbol);
     }
 
 }
 
 
-//0xD9dCEE2A1EC08EaDcAb263B3e8cC53E7E0AF7A4E
+
 contract D20NameSys{
 address public owner;
 mapping(address => address[]) public created;
 mapping(address => bool) public permission;
 mapping(string => bool) names;
-mapping(string => bool) symbols;
-mapping(string => address) namesAddress;
-mapping(string => address) symbolsAddress;
+mapping(string => address) namesAddress;;
 mapping(address => string)public tokenNames;
-mapping(address => string)public tokenSymbols;
-mapping(address => bool)public gift;
+mapping(address => address)public namesOwner;
 address[] public list;
 BasicStandardToken flood;
 
 
-function FloodNameSys(){
+function D20NameSys(){
 owner=msg.sender;
-
 }
 
 function setFloodToken(address _flood){
@@ -57,34 +53,24 @@ if(msg.sender!=owner)revert();
 flood=BasicStandardToken(_flood);
 }
 
-function setGift(address gen,bool b){
-if(msg.sender!=owner)revert();
-gift[gen]=b;
-}
-
-function setToken(string _name,string _symbol,bool b){
+function setD20(string _name,bool b){
 if(msg.sender!=owner)revert();
 names[_name]=b;
-symbols[_symbol]=b;
 }
 
-function deleteToken(address a){
+function deleteD20(address a){
 if(msg.sender!=owner)revert();
 tokenNames[a]="";
-tokenSymbols[a]="";
 }
 
-function add(address token,address own,string _name,string _symbol) returns (bool){
-if((!permission[msg.sender])||(names[_name])||(symbols[_symbol]))revert();
-created[own].push(address(token));
-list.push(address(token));
+function add(address d20,address own,string _name) returns (bool){
+if((!permission[msg.sender])||(names[_name]))revert();
+created[own].push(address(d20));
+list.push(address(d20));
 names[_name]=true;
-tokenNames[token]=_name;
-namesAddress[_name]=token;
-symbols[_symbol]=true;
-tokenSymbols[token]=_symbol;
-symbolsAddress[_symbol]=token;
-if(gift[msg.sender])flood.transfer(own,1);
+tokenNames[d20]=_name;
+namesAddress[_name]=d20;
+namesOwner[_name]=own;
 return true;
 }
 
@@ -93,23 +79,19 @@ if(msg.sender!=owner)revert();
 permission[a]=b;
 }
 
-function getMyTokens(address own,uint i)constant returns(address,uint){
+function getMyD20(address own,uint i)constant returns(address,uint){
 return (created[own][i],created[own].length);
 }
 
-function getTokenIndex(uint i)constant returns(address,uint){
+function getD20Index(uint i)constant returns(address,uint){
 return (list[i],list.length);
 }
 
-function getToken(address _token)constant returns(string,string){
-return (tokenNames[_token],tokenSymbols[_token]);
+function getD20(address _D20)constant returns(string){
+return (tokenNames[_D20],namesOwner[_D20]);
 }
 
 function checkName(string _name)constant returns(bool){return names[_name];}
 
-function checkSymbol(string _symbol)constant returns(bool){return symbols[_symbol];}
-
 function findName(string _name)constant returns(address){return namesAddress[_name];}
-
-function findSymbol(string _symbol)constant returns(address){return symbolsAddress[_symbol];}
 }
