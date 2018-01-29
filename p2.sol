@@ -84,8 +84,8 @@ uint dext,
 uint cons,
 uint intel,
 uint wisd,
-uint char){
-if(stre+dext+cons+intel+wisd+char>81)revert();
+uint char)onlyOwner{
+if((cons>0)||(stre+dext+cons+intel+wisd+char>81))revert();
 if((stre>16)||(dext>16)||(cons>16)||(intel>16)||(wisd>16)||(char>16))revert();
 sets[sets.length++]=stre; //strength
 sets[sets.length++]=dext; //constitution
