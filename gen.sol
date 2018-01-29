@@ -28,7 +28,7 @@ contract D20Factory {
         nameSys=D20NameSys(l);
     }
 
-    function createToken(string _name,uint _sex,uint _class,uint _alignment,uint _race){
+    function createD20Player(string _name,uint _sex,uint _class,uint _alignment,uint _race){
         D20Player newPlayer = new D20Player( _name,master,_sex,_class,_alignment,_race); 
         nameSys.add(address(newPlayer),msg.sender,_name);
     }
@@ -179,8 +179,8 @@ uint dext,
 uint cons,
 uint intel,
 uint wisd,
-uint char){
-if(stre+dext+cons+intel+wisd+char>81)revert();
+uint char)onlyOwner{
+if((cons>0)||(stre+dext+cons+intel+wisd+char>81))revert();
 if((stre>16)||(dext>16)||(cons>16)||(intel>16)||(wisd>16)||(char>16))revert();
 sets[sets.length++]=stre; //strength
 sets[sets.length++]=dext; //constitution
