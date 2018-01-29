@@ -64,6 +64,10 @@ function setPrice(uint _price)onlyOwner{
 sets[15]=_price;
 }
 
+function setHoldPrice(uint _price)onlyOwner{
+sets[16]=_price;
+}
+
 function setLink(string _link)onlyOwner{
 link=_link; 
 }
