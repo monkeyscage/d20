@@ -29,7 +29,7 @@ contract D20Factory {
     }
 
     function createToken(string _name,uint _sex,uint _class,uint _alignment,uint _race){
-        D20Player newPlayer = new D20Player( _name,_master,_sex,_class,_alignment,_race); 
+        D20Player newPlayer = new D20Player( _name,master,_sex,_class,_alignment,_race); 
         nameSys.add(address(newPlayer),msg.sender,_name);
     }
 
