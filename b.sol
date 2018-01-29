@@ -38,6 +38,7 @@ sets.length++; //experience
 sets.length++; //weight
 sets.length++; //death
 sets.length++; //price
+sets.length++;  //hold price
 sets[sets.length++]=10; //slots
 
 }
