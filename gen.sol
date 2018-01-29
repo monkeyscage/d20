@@ -20,8 +20,7 @@ contract D20Factory {
     
     function setMaster(address a) {
        if(msg.sender!=owner)revert();
-       master=a;
-               master=D20master(l);
+       master=D20master(a);
     }
 
     function setList(address l){
