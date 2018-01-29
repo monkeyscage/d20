@@ -8,7 +8,7 @@ owner=msg.sender;
 }
 
 function setOwner(address a)onlyOwner{
-owner=a;
+owner=a;  
 }
 
 function setMaster(address a)onlyOwner{
