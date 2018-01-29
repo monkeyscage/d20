@@ -43,7 +43,7 @@ mapping(address => address[]) public created;
 mapping(address => bool) public permission;
 mapping(string => bool) names;
 mapping(string => address) namesAddress;
-mapping(address => string)public tokenNames;
+mapping(address => string)public D20Names;
 address[] public list;
 
 
@@ -59,7 +59,7 @@ names[_name]=b;
 
 function deleteD20(address a){
 if(msg.sender!=owner)revert();
-tokenNames[a]="";
+D20Names[a]="";
 }
 
 function add(address d20,address own,string _name) returns (bool){
@@ -67,7 +67,7 @@ if((!permission[msg.sender])||(names[_name]))revert();
 created[own].push(address(d20));
 list.push(address(d20));
 names[_name]=true;
-tokenNames[d20]=_name;
+D20Names[d20]=_name;
 namesAddress[_name]=d20;
 return true;
 }
@@ -86,7 +86,7 @@ return (list[i],list.length);
 }
 
 function getD20(address _D20)constant returns(string){
-return (tokenNames[_D20]);
+return (D20Names[_D20]);
 }
 
 function checkName(string _name)constant returns(bool){return names[_name];}
