@@ -6,7 +6,7 @@ contract D20Factory {
 
      address public owner;
      D20NameSys public nameSys; 
-     address public master;
+     D20master public master;
 
     function D20Factory(address m) {
       owner=msg.sender;
@@ -21,6 +21,7 @@ contract D20Factory {
     function setMaster(address a) {
        if(msg.sender!=owner)revert();
        master=a;
+               master=D20master(l);
     }
 
     function setList(address l){
@@ -31,6 +32,7 @@ contract D20Factory {
     function createD20Player(string _name,uint _sex,uint _class,uint _alignment,uint _race){
         D20Player newPlayer = new D20Player( _name,master,_sex,_class,_alignment,_race); 
         nameSys.add(address(newPlayer),msg.sender,_name);
+        master.add(newPlayer);
     }
 
 }
