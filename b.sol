@@ -93,5 +93,11 @@ function setBody(address a)public onlyOwner{
 body=a;
 }
 
+//blocklog interface
+string public logInterface="a-Item";
+function readLog(uint i)constant returns(uint,address){
+return(10,slots[i]);
+}
+
 
 }
