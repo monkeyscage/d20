@@ -22,6 +22,7 @@ return true;
  
 //add a new post at the end of the log
 function addDead(address D20Player) returns(bool){
+if((msg.sender!=owner)&&(msg.sender!=controller))throw;
 log l=logs[logcount-1];
 l.next=logcount;
 logs.push(log(D20Player,block.number,logcount-1,logcount+1));
