@@ -57,6 +57,7 @@ contract D20Gold is EIP20Interface {
     uint8 public decimals;               
     string public symbol;   
     public uint weight;
+    address public owner;
 
     function D20Gold(
         uint256 _initialAmount,
@@ -69,7 +70,8 @@ contract D20Gold is EIP20Interface {
         name = _tokenName;                                   // Set the name for display purposes
         decimals = _decimalUnits;                            // Amount of decimals for display purposes
         symbol = _tokenSymbol;                               // Set the symbol for display purposes
-    }
+        owner=msg.sender;
+     }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balances[msg.sender] >= _value);
