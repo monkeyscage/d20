@@ -56,8 +56,9 @@ contract D20Gold is EIP20Interface {
     string public name;                  
     uint8 public decimals;               
     string public symbol;   
-    public uint weight;
+    public uint weight=10;
     address public owner;
+    address public master;
 
     function D20Gold(
         uint256 _initialAmount,
@@ -77,6 +78,7 @@ contract D20Gold is EIP20Interface {
         require(balances[msg.sender] >= _value);
         balances[msg.sender] -= _value;
         balances[_to] += _value;
+        master.transfer(msg.sender, _to, weight);
         Transfer(msg.sender, _to, _value);
         return true;
     }
@@ -89,6 +91,7 @@ contract D20Gold is EIP20Interface {
         if (allowance < MAX_UINT256) {
             allowed[_from][msg.sender] -= _value;
         }
+        master.transfer(msg.sender, _to, weight);
         Transfer(_from, _to, _value);
         return true;
     }
@@ -106,4 +109,9 @@ contract D20Gold is EIP20Interface {
     function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
         return allowed[_owner][_spender];
     }   
+    
+    function setMaster(address _master,bool b)public{
+    if(msg.sender!=owner)revert();
+    masters=_master;
+    }
 }
