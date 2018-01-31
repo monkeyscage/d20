@@ -10,8 +10,6 @@ mapping(address => bool)public ledger;
 //creation
 function D20Ledger(address o) {
 owner=o;
-logcount=1;
-logs.push(log(this,block.number,logcount-1,logcount+1));
 }
 
 //change owner
@@ -46,12 +44,7 @@ string public logInterface="a-Log";
     address ethlink;
    }
  
- 
-//destroy blog
-function kill(){
-if (msg.sender != owner)throw;
-selfdestruct(owner);
-}
+
 
 
 }
