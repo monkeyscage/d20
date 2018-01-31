@@ -24,42 +24,26 @@ return true;
 //add a new post at the end of the log
 function addEntity(address D20Player) returns(bool){
 if((msg.sender!=owner)&&(msg.sender!=controller))revert();
-log l=logs[logcount-1];
-l.next=logcount;
-logs.push(log(D20Player,block.number,logcount-1,logcount+1));
+logs.push(log(D20Player));
 logcount++;
 ledger[D20Player]=true;
-return true;
-}
-
-//delete a specific post at a given index
-function removeEntity(uint index,address D20Player) returns(bool){
-if((msg.sender!=owner)&&(msg.sender!=controller))revert();
-log l=logs[index];
-if(l.prev>0)logs[l.prev].next=l.next;
-logs[l.next].prev=l.prev;
-logcount--;
-ledger[D20Player]=false;
 return true;
 }
  
  
 //read the logs by index
-function readLog(uint i)constant returns(uint,address,uint,uint,uint,uint){
+function readLog(uint i)constant returns(uint,address){
 log l=logs[i];
-return(logs.length,l.ethlink,l.blocknumber,l.prev,l.next,logcount);
+return(logs.length,l.ethlink);
 }
 
 //the logs container
 log[] logs;
 //used to know in advance the logs structure
-string public logInterface="a-Log|u-Block|u-PrevLog|u-NextLog|u-TotExposed";
+string public logInterface="a-Log";
 
     struct log{
     address ethlink;
-    uint blocknumber;
-    uint prev;
-    uint next;
    }
  
  
